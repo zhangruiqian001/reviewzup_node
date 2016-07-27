@@ -1,0 +1,31 @@
+{
+  "name": "reviewzup",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./server/server"
+  },
+  "dependencies": {
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "ejs": "~2.3.3",
+    "express": "~4.13.1",
+    "express-session": "^1.13.0",
+    "jsonwebtoken": "^5.0.0",
+    "jwt-simple": "^0.5.0",
+    "mongoose": "^4.4.19",
+    "morgan": "~1.6.1",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.0.0",
+    "passport-local": "^1.0.0",
+    "serve-favicon": "~2.3.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.5.2",
+    "babel-loader": "^6.2.2",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-react": "^6.5.0",
+    "webpack": "^1.12.13"
+  }
+}
