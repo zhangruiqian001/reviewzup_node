@@ -2,6 +2,7 @@
 * mkdir data
 * mongod -dbpath ./data/
 * npm run start
+* Restful API in port 3000
 
 | url | method | header | body |res|
 |---|---|---|---|---|
