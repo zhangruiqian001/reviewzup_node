@@ -10,6 +10,24 @@ var UserSchema = new mongoose.Schema(
         password: {
             type: String,
             required: true
+        },
+        //status:0 initial, 1 activated
+        status: {
+            type: Number,
+            required: true
+        },
+        email: {
+            type: String,
+            required: true,
+            unique: true
+        },
+        verify_code: {
+            type: String,
+            required: true
+        },
+        create_time:{
+            type:Date,
+            required:true
         }
     }
 );
@@ -17,9 +35,10 @@ var UserSchema = new mongoose.Schema(
 UserSchema.methods.comparePassword = function (passw, cb) {
     if (passw == this.password) {
         cb(null, true);
-    }else{
+    } else {
         cb(null, false);
     }
-}
+};
+
 
 module.exports = mongoose.model('User', UserSchema);

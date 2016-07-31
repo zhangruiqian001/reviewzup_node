@@ -11,7 +11,7 @@ module.exports = function (passport) {
     opts.secretOrKey = config.secret;
     opts.jwtFromRequest = ExtractJwt.fromAuthHeader();
     passport.use(new JwtStrategy(opts, function (jwt_payload, done) {
-        User.findOne({_id: jwt_payload._id}, function (err, user) {
+        User.findOne({_id: jwt_payload._id, status: 1}, function (err, user) {
             if (err) {
                 return done(err, false);
             }

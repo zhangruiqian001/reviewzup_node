@@ -13,6 +13,9 @@ module.exports = function (app, passport) {
     var router = express.Router();
     router.post('/authenticate', authController.authenticate);
     router.post('/register', authController.register);
+    router.get('/verify', authController.emailVerify);
+    
+    
     
     router.route('/users')
         .get(isAuthenticated, userController.getUsers)
