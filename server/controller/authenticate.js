@@ -64,7 +64,9 @@ module.exports = {
                                 var link = "http://" + req.get('host') + "/api/verify?code=" + user.verify_code;
                                 var mailOptions = {
                                     to: user.email,
-                                    from: config.emailSender,
+                                    from: 'reviewzup" <'+config.emailSender+'>',
+                                    // from: config.emailSender,
+                                    sender: 'reviewzup',
                                     subject: "Please confirm your Email account",
                                     html: "Hello,<br> Please Click on the link to verify your email.<br>" +
                                     "<a href=" + link + ">Click here to verify</a>"
