@@ -1,0 +1,130 @@
+{
+	"variables": [],
+	"info": {
+		"name": "reviewzup",
+		"_postman_id": "de8a6a41-1d24-0681-9c1a-b8508556fa2e",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"url": "http://localhost:3000/api/register",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"richard\",\n    \"password\": \"aaaaa888\",\n    \"email\":\"zhangruiqian001@gmail.com\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "verify",
+			"request": {
+				"url": "http://localhost:3000/api/verify?code=1469957668675",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "authenticate",
+			"request": {
+				"url": "http://localhost:3000/api/authenticate",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"richard\",\n    \"password\": \"aaaaa888\"\n}"
+				},
+				"description": "authenticate"
+			},
+			"response": []
+		},
+		{
+			"name": "get userList",
+			"request": {
+				"url": "http://localhost:3000/api/users",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI1NzlkYzc4YWEzNTcwYTU5MDU3M2RiNGYiLCJ1c2VybmFtZSI6Imxlb25hIiwicGFzc3dvcmQiOiJhYWFhYTg4OCIsImVtYWlsIjoibGVvbmFAaG90bWFpbC5jb20iLCJzdGF0dXMiOjEsInZlcmlmeV9jb2RlIjoiMTQ2OTk1ODAyNjYwOCIsImNyZWF0ZV90aW1lIjoiMjAxNi0wNy0zMVQwOTo0MDoyNi45OThaIiwiX192IjowfQ.xJ_qd5sfDv82LoQhAneZ7EHG-tFkj8S1ysg26c1kTFE",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "postOrder",
+			"request": {
+				"url": "http://localhost:3000/api/order",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI1NzViZWE3ZDFkYmYzOTI3MDkxNWZiOWYiLCJ1c2VybmFtZSI6Imxlb25hIiwicGFzc3dvcmQiOiJhYWFhYTg4OCIsIl9fdiI6MH0.Z2uk0pc6C0eSasjRQ4S4Al9MCnVlhPPz_kW48SfynjI",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"url\":\"http://reviewzup.com\",\n    \"reviewNumber\":123,\n    \"totalPrice\":300\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "listUserOrders",
+			"request": {
+				"url": "http://localhost:3000/api/orders",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI1NzViZWE3ZDFkYmYzOTI3MDkxNWZiOWYiLCJ1c2VybmFtZSI6Imxlb25hIiwicGFzc3dvcmQiOiJhYWFhYTg4OCIsIl9fdiI6MH0.Z2uk0pc6C0eSasjRQ4S4Al9MCnVlhPPz_kW48SfynjI",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
