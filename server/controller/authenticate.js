@@ -4,6 +4,7 @@
 const User = require('../models/user');
 const config = require('../config/database');
 const jwt = require('jwt-simple');
+const smtpTransport = require('../config/smtpTransport').smtpTransport;
 const randomCode = require('../util/util').randomCode;
 module.exports = {
     authenticate: function (req, res) {
@@ -59,7 +60,28 @@ module.exports = {
                         user.save(function (err) {
                             if (err)
                                 res.send(err);
-                            res.json({success: true, msg: 'Need verify email to activate account'});
+                            else {
+                                var link = "http://" + req.get('host') + "/api/verify?code=" + user.verify_code;
+                                var mailOptions = {
+                                    to: user.email,
+                                    from: config.emailSender,
+                                    subject: "Please confirm your Email account",
+                                    html: "Hello,<br> Please Click on the link to verify your email.<br>" +
+                                    "<a href=" + link + ">Click here to verify</a>"
+                                };
+                                console.log(mailOptions);
+                                smtpTransport.sendMail(mailOptions, function (error, response) {
+                                    if (error) {
+                                        console.log(error);
+                                    } else {
+                                        console.log("Message sent: " + response);
+                                    }
+                                });
+                                res.json({
+                                    success: true, msg: 'A verify email has send.' +
+                                    ' Please check and activate account'
+                                });
+                            }
                         })
                     }
                 }
