@@ -61,28 +61,7 @@ module.exports = {
                             if (err)
                                 res.send(err);
                             else {
-                                var link = "http://" + req.get('host') + "/api/verify?code=" + user.verify_code;
-                                var mailOptions = {
-                                    to: user.email,
-                                    from: 'reviewzup" <'+config.emailSender+'>',
-                                    // from: config.emailSender,
-                                    sender: 'reviewzup',
-                                    subject: "Please confirm your Email account",
-                                    html: "Hello,<br> Please Click on the link to verify your email.<br>" +
-                                    "<a href=" + link + ">Click here to verify</a>"
-                                };
-                                console.log(mailOptions);
-                                smtpTransport.sendMail(mailOptions, function (error, response) {
-                                    if (error) {
-                                        console.log(error);
-                                    } else {
-                                        console.log("Message sent: " + response);
-                                    }
-                                });
-                                res.json({
-                                    success: true, msg: 'A verify email has send.' +
-                                    ' Please check and activate account'
-                                });
+                                user.sendVerify(req, res);
                             }
                         })
                     }
@@ -90,6 +69,25 @@ module.exports = {
             }
         );
     },
+    sendVerify: function (req, res) {
+        User.findOne(
+            {
+                username: req.body.username,
+                status: 0
+            },
+            function (err, user) {
+                if (user) {
+                    user.sendVerify(req, res);
+                } else {
+                    res.json({
+                        success: false,
+                        msg: 'user can not find'
+                    });
+                }
+            }
+        )
+    },
+
     emailVerify: function (req, res) {
         User.findOne(
             {verify_code: req.query.code, status: 0},

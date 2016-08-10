@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "reviewzup",
-		"_postman_id": "de8a6a41-1d24-0681-9c1a-b8508556fa2e",
+		"_postman_id": "1f97a13c-1216-d8a2-1fd3-4d7267931c41",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -22,6 +22,26 @@
 				"body": {
 					"mode": "raw",
 					"raw": "{\n    \"username\": \"richard\",\n    \"password\": \"aaaaa888\",\n    \"email\":\"zhangruiqian001@gmail.com\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "sendVerify",
+			"request": {
+				"url": "http://localhost:3000/api/sendVerify",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"richard\",\n    \"email\":\"zhangruiqian001@hotmail.com\"\n}"
 				},
 				"description": ""
 			},

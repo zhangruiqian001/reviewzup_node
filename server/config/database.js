@@ -3,7 +3,7 @@
  */
 module.exports = {
     'secret': 'devReviewProject',
-    'emailSender': 'zhangruiqian001@hotmail.com',
-    'emailSecret': 'Richard0815',
+    'emailSender': 'm18628025197@163.com',
+    'emailSecret': 'Richard2016',
     'host': 'localhost:3000'
 };
